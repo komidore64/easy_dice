@@ -1,16 +1,5 @@
 # dice.rb
 
-# usage
-# =====
-# irb> set = 1.d(8) + 1.d(6) + 3
-# => #<Dice:0x... @count=1, ... >
-# irb> set.roll
-# => 20
-# irb> (4.d(6) + 2.d(10) + 10).roll
-# => 26
-# irb> roll(12.d(6))
-# => 45
-
 class Dice
 
   def initialize(count, sides = 1)
@@ -30,19 +19,31 @@ class Dice
     top
   end
 
+  def minimum
+    min = @count
+    min += @child.minimum
+    min
+  end
+
+  def maximum
+    max = @sides > 1 ? @sides : @count
+    max += @child.maximum
+    max
+  end
+
+  alias min minimum
+  alias max maximum
+
   protected
 
-  attr_accessor :count, :sides
   attr_accessor :parent, :child
 
   def top
-    return self if @parent.nil?
-    @parent.top
+    return @parent.nil? ? self : @parent.top
   end
 
   def bottom
-    return self if @child.nil?
-    @child.bottom
+    return @child.nil? ? self : @child.bottom
   end
 
 end
@@ -57,5 +58,11 @@ class Object
   def roll(d)
     raise "you can only roll dice, bro" unless d.class == Dice
     d.roll
+  end
+end
+
+class NilClass
+  [:maximum, :minimum].each do |method|
+    define_method(method) { 0 }
   end
 end
