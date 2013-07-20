@@ -54,13 +54,6 @@ class Fixnum
   end
 end
 
-class Object
-  def roll(d)
-    raise "you can only roll dice, bro" unless d.class == Dice
-    d.roll
-  end
-end
-
 class NilClass
   [:maximum, :minimum].each do |method|
     define_method(method) { 0 }

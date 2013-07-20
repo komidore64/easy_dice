@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'easy_dice'
+
+begin
+  p EasyDice.read(ARGV.join("")).roll
+rescue EasyDice::FormatError => err
+  p err.message
+end
