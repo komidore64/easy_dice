@@ -1,5 +1,5 @@
-#!/usr/bin/env ruby
-
+# fixnum_d.rb
+#
 # Copyright (C) 2013 Adam Price (komidore64 at gmail dot com)
 #
 # This program is free software: you can redistribute it and/or modify
@@ -15,11 +15,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-require 'easy_dice'
-
-begin
-  p EasyDice.read(ARGV.join("")).roll
-rescue EasyDice::FormatError => err
-  p err.message
-  exit 1
+class Fixnum
+  def d(sides)
+    Dice.new(self, sides)
+  end
 end
