@@ -1,4 +1,3 @@
-# easy_dice.rb
 #
 # Copyright (C) 2013 Adam Price (komidore64 at gmail dot com)
 #

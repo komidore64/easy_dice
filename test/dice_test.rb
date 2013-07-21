@@ -1,6 +1,22 @@
+#
+# Copyright (C) 2013 Adam Price (komidore64 at gmail dot com)
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 require 'helper'
 
-# someone will probably scold me about this
+# someone will probably scold me for this
 class Dice
   attr_accessor :count, :sides
   attr_accessor :parent, :child
@@ -95,4 +111,5 @@ class DiceTest < MiniTest::Unit::TestCase
       assert_includes((1..20).to_a, d.roll)
     end
   end
+
 end

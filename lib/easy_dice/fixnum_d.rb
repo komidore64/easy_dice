@@ -1,4 +1,3 @@
-# fixnum_d.rb
 #
 # Copyright (C) 2013 Adam Price (komidore64 at gmail dot com)
 #
@@ -16,7 +15,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class Fixnum
+
   def d(sides)
     Dice.new(self, sides)
   end
+
 end
