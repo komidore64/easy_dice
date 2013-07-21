@@ -15,20 +15,20 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Gem::Specification.new do |s|
-  s.name = "easy_dice"
-  s.version = "0.0.1"
-  s.date = "2013-07-20"
-  s.summary = "Super simple gem for rolling polyhedral dice."
-  s.description = "Super simple gem for rolling polyhedral dice."
-  s.authors = ["Adam Price"]
-  s.email = "komidore64@gmail.com"
-  s.files = [
-    "lib/easy_dice.rb",
-    "lib/easy_dice/dice.rb",
-    "lib/easy_dice/easy_dice.rb",
-    "lib/easy_dice/format_error.rb",
-    "lib/easy_dice/fixnum_d.rb"
-  ]
-  s.executables << "roll"
-  s.homepage = "http://rubygems.org/gems/easy_dice"
+  s.name        = "easy_dice"
+  s.version     = "0.0.1"
+  s.authors     = ["Adam Price"]
+  s.email       = ["komidore64@gmail.com"]
+  s.homepage    = "http://rubygems.org/gems/easy_dice"
+  s.summary     = "Simple gem for rolling dice."
+  s.description = "Gem for rolling polyhedral dice."
+  s.licenses    = ["GPL-3"]
+
+  s.files       = `git ls-files`.split("\n")
+  s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables = ["roll"]
+
+  s.add_development_dependency("rake", "~>10.1")
+  s.add_development_dependency("minitest", "~>4.3")
+  s.add_development_dependency("simplecov", "~>0.7")
 end

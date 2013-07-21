@@ -20,7 +20,6 @@ SimpleCov.start do
 end
 
 require 'minitest/autorun'
-require 'debugger'
 
 require 'easy_dice'
 
