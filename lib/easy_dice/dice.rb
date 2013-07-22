@@ -16,6 +16,8 @@
 
 class Dice
 
+  attr_reader :count, :sides, :parent, :child
+
   def initialize(count, sides = 1)
     @count, @sides = count, sides
   end
@@ -56,7 +58,7 @@ class Dice
 
   protected
 
-  attr_accessor :parent, :child
+  attr_writer :parent, :child
 
   def top
     return @parent.nil? ? self : @parent.top

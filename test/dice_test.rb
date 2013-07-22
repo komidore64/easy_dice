@@ -16,12 +16,6 @@
 
 require 'helper'
 
-# someone will probably scold me for this
-class Dice
-  attr_accessor :count, :sides
-  attr_accessor :parent, :child
-end
-
 class DiceTest < MiniTest::Unit::TestCase
 
   def teardown
