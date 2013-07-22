@@ -1,5 +1,4 @@
-# easy_dice [![Build Status](https://travis-ci.org/komidore64/easy_dice.png?branch=master)](https://travis-ci.org/komidore64/easy_dice)
-on rubygems: [![Gem Version](https://badge.fury.io/rb/easy_dice.png)](http://rubygems.org/gems/easy_dice)
+# easy_dice [![Build Status](https://travis-ci.org/komidore64/easy_dice.png?branch=master)](https://travis-ci.org/komidore64/easy_dice) [![Gem Version](https://badge.fury.io/rb/easy_dice.png)](http://rubygems.org/gems/easy_dice)
 
 super simple gem for rolling polyhedral dice
 
@@ -34,12 +33,14 @@ irb> (12.d(6) + 10).roll
 
 3. `easy_dice` can give you a little bit of miscellaneous information
 ```ruby
-irb> (1.d(6) + 1.d(8)).min # what's the smallest number that can be rolled?
+irb> d = 1.d(6) + 1.d(8)
+ => #<Dice:0x00 ... >
+irb> d.min # what's the smallest number that can be rolled?
  => 2
-irb> (1.d(6) + 1.d(8)).max # what's the largest number that can be rolled?
+irb> d.max # what's the largest number that can be rolled?
  => 14
-irb > puts 1.d(10) + 1.d(8) # "i forgot what dice i was going to roll"
-1d10 + 1d8
+irb > puts d # "i forgot what dice i was going to roll"
+1d6 + 1d8
  => nil
 ```
 
