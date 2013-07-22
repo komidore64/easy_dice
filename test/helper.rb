@@ -20,6 +20,11 @@ SimpleCov.start do
 end
 
 require 'minitest/autorun'
+begin
+  require 'debugger'
+rescue LoadError
+  p "NOTE: if you want to use 'debugger', uncomment it from the Gemfile"
+end
 
 require 'easy_dice'
 
