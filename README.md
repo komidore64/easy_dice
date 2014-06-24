@@ -1,6 +1,8 @@
 # easy_dice [![Build Status](https://travis-ci.org/komidore64/easy_dice.png?branch=master)](https://travis-ci.org/komidore64/easy_dice) [![Gem Version](https://badge.fury.io/rb/easy_dice.png)](http://rubygems.org/gems/easy_dice)
 
-super simple gem for rolling polyhedral dice
+A super simple gem for rolling polyhedral dice with ruby.
+
+I wrote this when learning how to develop a rubygem.
 
 ## todo
 
