@@ -23,7 +23,7 @@ class Dice
   end
 
   def roll
-    total = @count.times.inject(0) { |total, _| total += rand(@sides) + 1 }
+    total = @count.times.inject(0) { |t, _| t += rand(@sides) + 1 }
     total += @child.roll unless @child.nil?
     total
   end
