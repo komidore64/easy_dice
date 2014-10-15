@@ -53,8 +53,8 @@ class Dice
     str
   end
 
-  alias min minimum
-  alias max maximum
+  alias_method :min, :minimum
+  alias_method :max, :maximum
 
   protected
 
