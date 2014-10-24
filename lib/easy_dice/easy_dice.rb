@@ -15,7 +15,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class EasyDice
-
   # this is the format that EasyDice#read will accept
   READ_FORMAT = /\A((\d+)(d(\d+))?\s*[\+\-]\s*)*(\d+)(d(\d+))?\z/i
 
@@ -24,36 +23,37 @@ class EasyDice
   # so i'll leave them in. not complaining.
   DIE_PATTERN = /(?<count>\d+)(d(?<sides>\d+))?/
 
-  def self.read(str)
-    check_format!(str)
-    results = str.scan(DIE_PATTERN)
-    cleanup(results)
+  class << self
+    def read(str)
+      check_format!(str)
+      results = str.scan(DIE_PATTERN)
+      cleanup(results)
 
-    # top of the linked list
-    hand = Dice.new(results[0][0], results[0][1])
-    results.shift
+      # top of the linked list
+      hand = Dice.new(results[0][0], results[0][1])
+      results.shift
 
-    # tack on the rest
-    results.each do |res|
-      hand += Dice.new(res[0], res[1])
+      # tack on the rest
+      results.each do |res|
+        hand += Dice.new(res[0], res[1])
+      end
+      hand
     end
-    hand
-  end
 
-  private
+    private
 
-  def self.cleanup(results)
-    results.each do |res|
-      res[0] = res[0].to_i
-      res[1] = res[1].nil? ? 1 : res[1].to_i
+    def cleanup(results)
+      results.each do |res|
+        res[0] = res[0].to_i
+        res[1] = res[1].nil? ? 1 : res[1].to_i
+      end
+    end
+
+    def check_format!(str)
+      str.strip!
+      match = str.match(READ_FORMAT)
+      fail EasyDice::FormatError,
+        "String [ #{str} ] contains incorrect dice formatting." if match.nil?
     end
   end
-
-  def self.check_format!(str)
-    str.strip!
-    if str.match(READ_FORMAT).nil?
-      raise EasyDice::FormatError, "String [ %s ] contains incorrect dice formatting." % str
-    end
-  end
-
 end

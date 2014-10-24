@@ -15,9 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class Fixnum
-
   def d(sides)
     Dice.new(self, sides)
   end
-
 end

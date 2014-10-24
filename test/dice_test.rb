@@ -15,7 +15,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class DiceTest < MiniTest::Unit::TestCase
-
   def teardown
     GC.start
   end
@@ -54,12 +53,12 @@ class DiceTest < MiniTest::Unit::TestCase
 
   def test_string
     d = 1.d(10)
-    assert_equal("1d10", d.to_s)
+    assert_equal('1d10', d.to_s)
   end
 
   def test_string_multidice
     d = 1.d(8) + 1.d(6) + 8
-    assert_equal("1d8 + 1d6 + 8", d.to_s)
+    assert_equal('1d8 + 1d6 + 8', d.to_s)
   end
 
   def test_plus
@@ -89,7 +88,7 @@ class DiceTest < MiniTest::Unit::TestCase
   def test_plus_mod
     d1 = 1.d(8)
     d2 = 6
-    hand = d1 + d2
+    _ = d1 + d2
     ObjectSpace.each_object(Dice) do |o|
       # grab the object from the garbage collector
       d2 = o if o.count == 6 && o.sides == 1
@@ -103,5 +102,4 @@ class DiceTest < MiniTest::Unit::TestCase
       assert_includes((1..20).to_a, d.roll)
     end
   end
-
 end

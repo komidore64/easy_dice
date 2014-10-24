@@ -17,21 +17,21 @@
 require './lib/easy_dice/version'
 
 Gem::Specification.new do |s|
-  s.name        = "easy_dice"
+  s.name        = 'easy_dice'
   s.version     = EasyDice::VERSION
-  s.authors     = ["Adam Price"]
-  s.email       = ["komidore64@gmail.com"]
-  s.homepage    = "http://rubygems.org/gems/easy_dice"
-  s.summary     = "Simple gem for rolling dice."
-  s.description = "Gem for rolling polyhedral dice."
-  s.licenses    = ["GPL-3"]
+  s.authors     = ['Adam Price']
+  s.email       = ['komidore64@gmail.com']
+  s.homepage    = 'http://rubygems.org/gems/easy_dice'
+  s.summary     = 'Simple gem for rolling dice.'
+  s.description = 'Gem for rolling polyhedral dice.'
+  s.licenses    = ['GPL-3']
 
   s.files       = `git ls-files`.split("\n")
   s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables = ["roll"]
+  s.executables = ['roll']
 
-  s.add_development_dependency("rake", "~>10.1")
-  s.add_development_dependency("minitest", "~>4.3")
-  s.add_development_dependency("simplecov", "~>0.7")
-  s.add_development_dependency("rubocop", "0.26.1")
+  s.add_development_dependency('rake', '~>10.1')
+  s.add_development_dependency('minitest', '~>4.3')
+  s.add_development_dependency('simplecov', '~>0.7')
+  s.add_development_dependency('rubocop', '0.26.1')
 end

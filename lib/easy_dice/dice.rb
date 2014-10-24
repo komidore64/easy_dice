@@ -15,7 +15,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class Dice
-
   attr_reader :count, :sides, :parent, :child
 
   def initialize(count, sides = 1)
@@ -23,15 +22,18 @@ class Dice
   end
 
   def roll
-    total = @count.times.inject(0) { |t, _| t += rand(@sides) + 1 }
+    total = @count.times.reduce(0) do |t, _|
+      t += rand(@sides) + 1
+      t
+    end
     total += @child.roll unless @child.nil?
     total
   end
 
-  def +(n)
-    n = Dice.new(n) if n.class == Fixnum
-    n.parent = self
-    bottom.child = n
+  def +(other)
+    other = Dice.new(other) if other.class == Fixnum
+    other.parent = self
+    bottom.child = other
     top
   end
 
@@ -49,7 +51,7 @@ class Dice
 
   def to_s
     str = @sides > 1 ? "#{@count}d#{@sides}" : "#{@count}"
-    str << " + #{@child.to_s}" unless @child.nil?
+    str << " + #{@child}" unless @child.nil?
     str
   end
 
@@ -61,11 +63,10 @@ class Dice
   attr_writer :parent, :child
 
   def top
-    return @parent.nil? ? self : @parent.top
+    @parent.nil? ? self : @parent.top
   end
 
   def bottom
-    return @child.nil? ? self : @child.bottom
+    @child.nil? ? self : @child.bottom
   end
-
 end
