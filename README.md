@@ -8,6 +8,7 @@ I wrote this when learning how to develop a rubygem.
 
 - help-output for `roll` executable
 - rdoc
+- add support for the SW dice system (Edge of the Empire, Age of Rebellion)
 
 ## usage
 
