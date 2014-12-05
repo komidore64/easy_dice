@@ -20,13 +20,13 @@ class DiceTest < MiniTest::Unit::TestCase
   end
 
   def test_explicit_creation
-    d = Dice.new(1, 6)
-    assert_equal(d.class, Dice)
+    d = Die.new(1, 6)
+    assert_equal(d.class, Die)
   end
 
   def test_fixnum_method_creation
     d = 1.d(20)
-    assert_equal(Dice, d.class)
+    assert_equal(Die, d.class)
   end
 
   def test_sides
@@ -71,17 +71,17 @@ class DiceTest < MiniTest::Unit::TestCase
   end
 
   def test_mod_creation
-    d = Dice.new(6)
-    assert_equal(Dice, d.class)
+    d = Die.new(6)
+    assert_equal(Die, d.class)
   end
 
   def test_mod_count
-    d = Dice.new(4)
+    d = Die.new(4)
     assert_equal(4, d.count)
   end
 
   def test_mod_sides
-    d = Dice.new(2)
+    d = Die.new(2)
     assert_equal(1, d.sides)
   end
 
@@ -89,7 +89,7 @@ class DiceTest < MiniTest::Unit::TestCase
     d1 = 1.d(8)
     d2 = 6
     _ = d1 + d2
-    ObjectSpace.each_object(Dice) do |o|
+    ObjectSpace.each_object(Die) do |o|
       # grab the object from the garbage collector
       d2 = o if o.count == 6 && o.sides == 1
     end

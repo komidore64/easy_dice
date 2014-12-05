@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-class Dice
+class Die
   attr_reader :count, :sides, :parent, :child
 
   def initialize(count, sides = 1)
@@ -31,7 +31,7 @@ class Dice
   end
 
   def +(other)
-    other = Dice.new(other) if other.class == Fixnum
+    other = Die.new(other) if other.class == Fixnum
     other.parent = self
     bottom.child = other
     top

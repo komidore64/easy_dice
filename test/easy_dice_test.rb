@@ -26,22 +26,22 @@ class EasyDiceTest < MiniTest::Unit::TestCase
 
   def test_read_happy_path
     d = EasyDice.read('1d12')
-    assert_equal(Dice, d.class)
+    assert_equal(Die, d.class)
   end
 
   def test_read_multidice_types_happy_path
     hand = EasyDice.read('1d8 + 1d6')
-    assert_equal(Dice, hand.class)
+    assert_equal(Die, hand.class)
   end
 
   def test_read_multidice_with_mod_happy_path
     hand = EasyDice.read('1d8 + 1d6 + 8')
-    assert_equal(Dice, hand.class)
+    assert_equal(Die, hand.class)
   end
 
   def test_read_multidice_with_mod_happy_path_no_spaces
     hand = EasyDice.read('1d8+1d6+8')
-    assert_equal(Dice, hand.class)
+    assert_equal(Die, hand.class)
   end
 
   def test_read_bad_format
