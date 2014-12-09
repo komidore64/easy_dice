@@ -16,6 +16,6 @@
 
 class Fixnum
   def d(sides)
-    Dice.new(self, sides)
+    Die.new(self, sides)
   end
 end

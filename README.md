@@ -19,7 +19,7 @@ include the gem in your project with `require 'easy_dice'`
 1. `easy_dice` will parse dice formatted as Strings
 ```ruby
 irb> d = EasyDice.read("1d6 + 8")
- => #<Dice:0x00 ... >
+ => #<Die:0x00 ... >
 irb> d.roll
  => 10
 ```
@@ -27,7 +27,7 @@ irb> d.roll
 2. you can throw straight ruby at `easy_dice` too
 ```ruby
 irb> d = 2.d(8) + 1.d(6) + 12
- => #<Dice:0x00 ... >
+ => #<Die:0x00 ... >
 irb> d.roll
  => 28
 irb> (12.d(6) + 10).roll
@@ -37,7 +37,7 @@ irb> (12.d(6) + 10).roll
 3. `easy_dice` can give you a little bit of miscellaneous information
 ```ruby
 irb> d = 1.d(6) + 1.d(8)
- => #<Dice:0x00 ... >
+ => #<Die:0x00 ... >
 irb> d.min # what's the smallest number that can be rolled?
  => 2
 irb> d.max # what's the largest number that can be rolled?

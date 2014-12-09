@@ -1,7 +1,4 @@
 language: ruby
 rvm:
+  - 2.0.0
   - 2.1.2
-env:
-  - RAKEJOB=rubocop
-  - RAKEJOB="test TESTOPTS=-v"
-script: "bundle exec rake $RAKEJOB"

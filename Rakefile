@@ -9,4 +9,4 @@ end
 RuboCop::RakeTask.new(:rubocop)
 
 desc 'run easy_dice tests, bro'
-task :default => [:test]
+task :default => [:test, :rubocop]

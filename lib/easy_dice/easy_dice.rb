@@ -30,12 +30,12 @@ class EasyDice
       cleanup(results)
 
       # top of the linked list
-      hand = Dice.new(results[0][0], results[0][1])
+      hand = Die.new(results[0][0], results[0][1])
       results.shift
 
       # tack on the rest
       results.each do |res|
-        hand += Dice.new(res[0], res[1])
+        hand += Die.new(res[0], res[1])
       end
       hand
     end
